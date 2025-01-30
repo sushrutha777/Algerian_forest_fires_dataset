@@ -107,46 +107,44 @@
         <form action="/predictdata" method="post">
             <div class="form-group">
                 <label>Temperature (°C)</label>
-                <input type="number" step="1" name="Temperature" value="{{ request.form.get('Temperature') }}" required>
+                <input type="number" step="any" name="Temperature" value="{{ request.form.get('Temperature') }}" required>
             </div>
             <div class="form-group">
                 <label>Relative Humidity (%)</label>
-                <input type="number" name="RH" value="{{ request.form.get('RH') }}" required>
+                <input type="number" step="any" name="RH" value="{{ request.form.get('RH') }}" required>
             </div>
             <div class="form-group">
                 <label>Wind Speed (m/s)</label>
-                <input type="number" step="1" name="Ws" value="{{ request.form.get('Ws') }}" required>
+                <input type="number" step="any" name="Ws" value="{{ request.form.get('Ws') }}" required>
             </div>
             <div class="form-group">
                 <label>Rainfall (mm)</label>
-                <input type="number" name="Rain" value="{{ request.form.get('Rain') }}" required>
+                <input type="number" step="any" name="Rain" value="{{ request.form.get('Rain') }}" required>
             </div>
             <div class="form-group">
                 <label>FFMC</label>
-                <input type="number" name="FFMC" value="{{ request.form.get('FFMC') }}" required>
+                <input type="number" step="any" name="FFMC" value="{{ request.form.get('FFMC') }}" required>
             </div>
             <div class="form-group">
                 <label>DMC</label>
-                <input type="number" name="DMC" value="{{ request.form.get('DMC') }}" required>
+                <input type="number" step="any" name="DMC" value="{{ request.form.get('DMC') }}" required>
             </div>
             <div class="form-group">
                 <label>ISI</label>
-                <input type="number" name="ISI" value="{{ request.form.get('ISI') }}" required>
+                <input type="number" step="any" name="ISI" value="{{ request.form.get('ISI') }}" required>
             </div>
             <div class="form-group">
-                <label>Classes</label>
-                <input type="number" name="Classes" value="{{ request.form.get('Classes') }}" required>
-            </div>
+                <label>Classes (0/1)</label>
+                <input type="number" name="Classes" value="{{ request.form.get('Classes') }}" min="0" max="1" step="1" required>
+            </div>            
             <div class="form-group">
                 <label>Region</label>
                 <select name="Region" required>
                     <option value="">Select Region</option>
-                    <option value="north" {% if request.form.get('Region') == 'north' %}selected{% endif %}>North</option>
-                    <option value="south" {% if request.form.get('Region') == 'south' %}selected{% endif %}>South</option>
-                    <option value="east" {% if request.form.get('Region') == 'east' %}selected{% endif %}>East</option>
-                    <option value="west" {% if request.form.get('Region') == 'west' %}selected{% endif %}>West</option>
+                    <option value="Bejaia region" {% if request.form.get('Region') == 'Bejaia region' %}selected{% endif %}>Bejaia region</option>
+                    <option value="Sidi Bel-abbes region" {% if request.form.get('Region') == 'Sidi Bel-abbes region' %}selected{% endif %}>Sidi Bel-abbes region</option>
                 </select>
-            </div>
+            </div>            
             <button type="submit">Predict</button>
         </form>
 

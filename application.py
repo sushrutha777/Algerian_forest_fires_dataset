@@ -48,11 +48,11 @@ def predict_datapoint():
         Region = request.form.get('Region', '').strip().lower()  # Normalize region input
 
         # Map the Region string to a numerical value
-        region_mapping = {'north': 0, 'south': 1, 'east': 2, 'west': 3}
+        region_mapping = {'bejaia region': 0, 'sidi bel-abbes region': 1}
         Region = region_mapping.get(Region, -1)  # Default to -1 if not found
 
         if Region == -1:
-            return render_template('home.html', result="Error: Invalid Region. Choose from north, south, east, west.")
+            return render_template('home.html', result="Error: Invalid Region.")
 
         # Scale the input features
         new_data_scaled = standard_scaler.transform([[Temperature, RH, Ws, Rain, FFMC, DMC, ISI, Classes, Region]])

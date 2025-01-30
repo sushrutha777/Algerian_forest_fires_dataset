@@ -3,18 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FMI Predictions</title>
+    <title>FIRE WEATHER INDEX PREDICTION</title>
     <style>
-        .login { max-width: 400px; margin: 0 auto; padding: 20px; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 8px; }
-        button { margin-top: 15px; padding: 10px 20px; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4a90e2;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus, select:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ab7;
+        }
+
+        .result-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eaf1f9;
+            border-radius: 5px;
+            border: 1px solid #d1e2f1;
+            text-align: center;
+            color: #4a90e2;
+            font-size: 20px;
+        }
+
+        .login a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: #4a90e2;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .login a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="login">
-        <h1>FMI Predictions</h1>
+        <h1>FIRE WEATHER INDEX PREDICTION</h1>
         <form action="/predictdata" method="post">
             <div class="form-group">
                 <label>Temperature (°C)</label>
@@ -63,9 +152,11 @@
 
         {% if result %}
         <div class="result-section">
-            <h2>THE FWI prediction is {{ result }}</h2>
+            <h2>{{ result }}</h2>
         </div>
         {% endif %}
+
+        <a href="/">Go back to the Home Page</a>
     </div>
 </body>
 </html>

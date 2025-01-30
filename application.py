@@ -58,7 +58,7 @@ def predict_datapoint():
         new_data_scaled = standard_scaler.transform([[Temperature, RH, Ws, Rain, FFMC, DMC, ISI, Classes, Region]])
         result = linreg_model.predict(new_data_scaled)
 
-        return render_template('home.html', result=f"THE FWI prediction is {result[0]:.2f}")
+        return render_template('home.html', result=f"THE Fire Weather Index  is {result[0]:.2f}")
 
     except Exception as e:
         return render_template('home.html', result=f"Error: {str(e)}")
